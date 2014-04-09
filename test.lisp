@@ -1,0 +1,18 @@
+(defun input()
+	(format *query-io*"please input a number:")
+	(force-output *query-io*)
+	(setq detail (read-line *query-io*))
+	(setq convert (parse-integer detail :junk-allowed T))
+(if convert
+	(format *query-io* "~a ~a ~%" "input number is:" convert)
+	(format *query-io* "input is not a number!~%"))
+(if (< convert 10)
+	(format *query-io* "input number < 10~%")
+	(if (< convert 20)
+		(format *query-io* "input number >10 & <20~%")
+		(format *query-io* "input number >20~%")
+	)
+)
+(force-output *query-io*)
+)
+

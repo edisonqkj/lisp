@@ -1,0 +1,16 @@
+(defun f ()
+	(setf array (make-array '(3 5) :initial-element 0))
+	(setf file-write (open "./1.txt" :direction :output
+									:if-does-not-exist :create 
+									:if-exists :overwrite))
+	(format file-write "~a ~%" array)
+	(close file-write)
+	(setf file-read (open "./1.txt"))
+	(setf detail (read file-read))
+	(close file-read)
+	(format *query-io* "~a~%" detail)
+	(format *query-io* "~a~%" array)
+	(format *query-io* "~a~%" (array-dimension detail 0))
+	(format *query-io* "~a~%" (array-dimension detail 1))
+;	(format *query-io* "~a~%" (array-dimension detail 2))
+)
